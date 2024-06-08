@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tokopedia Clone</title>
+    <!-- Masukkan stylesheet Anda di sini -->
+    <style>
+       /* Gaya CSS untuk Tokopedia Clone */
+
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+}
+
+/* Header */
+header {
+    background-color: #ee4d2d;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 24px;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Main Content */
+main {
+    padding: 20px;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+/* Sections */
+section {
+    margin-bottom: 20px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+/* Product */
+.product {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+    width: 200px;
+    display: inline-block;
+}
+
+.product img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.product h3 {
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.product p {
+    font-size: 14px;
+    color: #888;
+    margin-top: 5px;
+}
+
+/* Form */
+form {
+    margin-bottom: 20px;
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+form input[type="text"],
+form input[type="email"],
+form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+form input[type="submit"] {
+    background-color: #ee4d2d;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+form input[type="submit"]:hover {
+    background-color: #ff6347;
+}
+
+/* Table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table th,
+table td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+table th {
+    background-color: #f5f5f5;
+    text-align: left;
+}
+
+/* Messages */
+.success-message {
+    color: #007700;
+    font-weight: bold;
+}
+
+.error-message {
+    color: #ff0000;
+    font-weight: bold;
+}
+body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+        }
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+        }
+        main {
+            padding: 20px;
+        }
+        section {
+            margin-bottom: 20px;
+        }
+        .sidebar {
+            float: left;
+            width: 200px;
+            background-color: #f4f4f4;
+            padding: 20px;
+            border-right: 1px solid #ccc;
+        }
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        .sidebar ul li {
+            margin-bottom: 10px;
+        }
+        .sidebar ul li a {
+            text-decoration: none;
+            color: #333;
+        }
+        .content {
+            margin-left: 220px; /* Adjust based on sidebar width */
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="sidebar">
+            <ul>
+                <li><a href="#" id="home-link">Beranda</a></li>
+                <li><a href="#" id="products-link">Produk</a></li>
+                <li><a href="#" id="cart-link">Keranjang</a></li>
+                <li><a href="#" id="checkout-link">Checkout</a></li>
+                <li><a href="#" id="user-account-link">Akun Pengguna</a></li>
+                <li><a href="#" id="promotions-link">Promosi</a></li>
+                <li><a href="#" id="help-and-support-link">Bantuan</a></li>
+            </ul>
+        </div>
+
+    </header>
+
+    <main>
+        <section id="home">
+            <!-- Tampilkan konten untuk halaman Beranda -->
+            <h2>Selamat Datang di Tokopedia Clone!</h2>
+            <p>Temukan berbagai produk terbaik dengan harga terjangkau.</p>
+        </section>
+
+        <section id="products" style="display: none;">
+            <!-- Tampilkan konten untuk halaman Produk -->
+                <h2>Daftar Produk</h2>
+                <div class="product">
+                    <img src="product1.jpg" alt="Produk 1">
+                    <h3>Produk 1</h3>
+                    <p>Rp100.000</p>
+                    <button onclick="addToCart('Produk 1', 100000)">Tambah ke Keranjang</button>
+                </div>
+                <div class="product">
+                    <img src="product2.jpg" alt="Produk 2">
+                    <h3>Produk 2</h3>
+                    <p>Rp200.000</p>
+                    <button onclick="addToCart('Produk 2', 200.000)">Tambah ke Keranjang</button>
+                </div>
+                <!-- Tambahkan produk lainnya -->
+                <div class="product">
+                    <img src="product3.jpg" alt="Produk 3">
+                    <h3>Produk 3</h3>
+                    <p>Rp150.000</p>
+                    <button onclick="addToCart('Produk 3', 150.000)">Tambah ke Keranjang</button>
+                </div>
+                <div class="product">
+                    <img src="product4.jpg" alt="Produk 4">
+                    <h3>Produk 4</h3>
+                    <p>Rp250.000</p>
+                    <button onclick="addToCart('Produk 4', 250.000)">Tambah ke Keranjang</button>
+                </div>
+                <div class="product">
+                    <img src="product5.jpg" alt="Produk 5">
+                    <h3>Produk 5</h3>
+                    <p>Rp300.000</p>
+                    <button onclick="addToCart('Produk 5', 300.000)">Tambah ke Keranjang</button>
+                </div>
+                <div class="product">
+                    <img src="product6.jpg" alt="Produk 6">
+                    <h3>Produk 6</h3>
+                    <p>Rp120.000</p>
+                    <button onclick="addToCart('Produk 6',120.000)">Tambah ke Keranjang</button>
+                </div>
+                <div class="product">
+                    <img src="product7.jpg" alt="Produk 7">
+                    <h3>Produk 7</h3>
+                    <p>Rp180.000</p>
+                    <button onclick="addToCart('Produk 7',180.000)">Tambah ke Keranjang</button>
+                </div>
+                <div class="product">
+                    <img src="product8.jpg" alt="Produk 8">
+                    <h3>Produk 8</h3>
+                    <p>Rp220.000</p>
+                    <button onclick="addToCart('Produk 8', 220.000)">Tambah ke Keranjang</button>
+                </div>
+                <div class="product">
+                    <img src="product9.jpg" alt="Produk 9">
+                    <h3>Produk 9</h3>
+                    <p>Rp350.000</p>
+                    <button onclick="addToCart('Produk 9', 350.000)">Tambah ke Keranjang</button>
+                </div>
+                <div class="product">
+                    <img src="product10.jpg" alt="Produk 10">
+                    <h3>Produk 10</h3>
+                    <p>Rp180.000</p>
+                    <button onclick="addToCart('Produk 10',180.000)">Tambah ke Keranjang</button>
+                </div>          
+            <!-- Tambahkan produk lainnya -->
+        </section>
+
+        <section id="cart" style="display: none;">
+            <!-- Tampilkan konten untuk halaman Keranjang Belanja -->
+            <h2>Keranjang Belanja</h2>
+            <!-- Daftar produk dalam keranjang belanja -->
+            <!-- Opsi untuk mengubah jumlah produk atau menghapus produk dari keranjang -->
+            <!-- Total harga dari semua produk yang ada di keranjang -->
+        </section>
+
+        <section id="checkout" style="display: none;">
+            <!-- Tampilkan konten untuk halaman Checkout -->
+            <h2>Checkout</h2>
+            <!-- Formulir untuk memasukkan informasi pengiriman dan pembayaran -->
+            <!-- Pilihan metode pengiriman dan pembayaran -->
+            <!-- Ringkasan pesanan sebelum pembayaran -->
+        </section>
+
+        <section id="user-account" style="display: none;">
+            <!-- Tampilkan konten untuk halaman Akun Pengguna -->
+            <h2>Akun Pengguna</h2>
+            <!-- Informasi akun pengguna seperti nama, alamat, dan informasi kontak -->
+            <!-- Riwayat pembelian dan pesanan yang sedang diproses -->
+            <!-- Opsi untuk mengelola alamat pengiriman dan pembayaran -->
+        </section>
+
+        <section id="promotions" style="display: none;">
+            <!-- Tampilkan konten untuk halaman Promosi -->
+            <h2>Promosi dan Diskon</h2>
+            <!-- Halaman khusus untuk promosi atau diskon tertentu -->
+            <!-- Kode promo atau kupon yang dapat digunakan saat checkout -->
+            <!-- Informasi tentang program loyalitas atau program hadiah -->
+        </section>
+
+        <section id="help-and-support" style="display: none;">
+            <!-- Tampilkan konten untuk halaman Bantuan dan Dukungan Pelanggan -->
+            <h2>Bantuan dan Dukungan Pelanggan</h2>
+            
+            <!-- Pusat bantuan dengan pertanyaan umum dan jawaban -->
+            <div class="faq-section">
+                <h3>Pusat Bantuan</h3>
+                <p>Temukan jawaban untuk pertanyaan umum di bawah ini:</p>
+                <ul>
+                    <li><strong>Bagaimana cara berbelanja?</strong> - Untuk berbelanja, cukup cari produk yang Anda inginkan dan tambahkan ke keranjang belanja Anda. Lalu, ikuti langkah-langkah checkout untuk menyelesaikan pembayaran.</li>
+                    <li><strong>Bagaimana cara mengatasi masalah pembayaran?</strong> - Jika Anda mengalami masalah dengan pembayaran, pastikan Anda telah memasukkan informasi kartu kredit atau metode pembayaran lainnya dengan benar. Jika masalah masih berlanjut, hubungi layanan pelanggan kami.</li>
+                    <li><strong>Bagaimana cara mengembalikan barang?</strong> - Untuk mengembalikan barang, Anda dapat mengajukan permintaan pengembalian melalui akun Anda. Pastikan barang masih dalam kondisi baik dan lengkapi formulir pengembalian.</li>
+                    <!-- Tambahkan pertanyaan dan jawaban lainnya -->
+                </ul>
+            </div>
+            
+            <!-- Formulir kontak atau opsi obrolan langsung dengan layanan pelanggan -->
+            <div class="contact-section">
+                <h3>Hubungi Kami</h3>
+                <p>Jika Anda memiliki pertanyaan atau memerlukan bantuan tambahan, jangan ragu untuk menghubungi kami melalui formulir kontak di bawah ini:</p>
+                <form id="contact-form">
+                    <label for="name">Nama:</label>
+                    <input type="text" id="name" name="name" required>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                    <label for="message">Pesan:</label>
+                    <textarea id="message" name="message" required></textarea>
+                    <button type="submit">Kirim Pesan</button>
+                </form>
+            </div>
+            
+            <!-- Panduan atau tutorial untuk mengatasi masalah umum -->
+            <div class="tutorial-section">
+                <h3>Panduan dan Tutorial</h3>
+                <p>Temukan panduan lengkap untuk mengatasi masalah umum di bawah ini:</p>
+                <ul>
+                    <li><strong>Cara mengubah alamat pengiriman:</strong> Untuk mengubah alamat pengiriman, masuk ke akun Anda dan perbarui informasi alamat pada bagian pengaturan akun.</li>
+                    <li><strong>Cara melacak pesanan:</strong> Untuk melacak pesanan Anda, masuk ke akun Anda dan buka halaman riwayat pesanan.</li>
+                    <li><strong>Cara menggunakan kupon diskon:</strong> Untuk menggunakan kupon diskon, masukkan kode kupon saat checkout dan diskon akan diterapkan pada total pembelian Anda.</li>
+                    <!-- Tambahkan panduan atau tutorial lainnya -->
+                </ul>
+            </div>
+        </section>
+        
+            
+            <!-- Formulir kontak atau opsi obrolan langsung dengan lay
+        
+    </main>
+
+    <footer>
+        <!-- Tampilkan footer dengan informasi hak cipta, tautan ke kebijakan privasi, dll. -->
+        <p>&copy; 2024 Tokopedia Clone</p>
+    </footer>
+
+    <!-- Masukkan script JavaScript Anda di sini -->
+    <script>
+       function addToCart(productName, price) {
+    const cartItem = {
+        name: productName,
+        price: price
+    };
+
+    // Ambil keranjang dari local storage
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    // Tambahkan item ke keranjang
+    cart.push(cartItem);
+
+    // Simpan keranjang kembali ke local storage
+    localStorage.setItem('cart', JSON.stringify(cart));
+
+    // Tampilkan pesan sukses (opsional)
+    alert('Produk telah ditambahkan ke keranjang.');
+
+    // Tampilkan isi keranjang belanja
+    displayCart();
+}
+
+// Fungsi untuk menampilkan isi keranjang belanja
+function displayCart() {
+    const cartContainer = document.getElementById('cart');
+    cartContainer.innerHTML = '';
+
+    // Ambil keranjang dari local storage
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    // Jika keranjang kosong, tampilkan pesan
+    if (cart.length === 0) {
+        cartContainer.textContent = 'Keranjang Anda kosong.';
+    } else {
+        // Jika keranjang tidak kosong, tampilkan produk yang ada di dalamnya
+        const ul = document.createElement('ul');
+        cart.forEach(item => {
+            const li = document.createElement('li');
+            li.textContent = `${item.name} - Rp${item.price}`;
+            ul.appendChild(li);
+        });
+        cartContainer.appendChild(ul);
+    }
+}
+
+         const userData = {
+        name: "John Doe",
+        address: "123 Main Street, Cityville",
+        email: "john.doe@example.com",
+        orders: [
+            { id: 1, date: "2024-06-01", total: 150000 },
+            { id: 2, date: "2024-06-05", total: 250000 },
+            { id: 3, date: "2024-06-10", total: 300000 }
+        ]
+    };
+
+    document.addEventListener("DOMContentLoaded", function() {
+        // Panggil fungsi untuk menampilkan informasi pengguna
+        displayUserInfo();
+    });
+
+    // Fungsi untuk menampilkan informasi pengguna
+    function displayUserInfo() {
+        const userAccountSection = document.getElementById("user-account");
+
+        // Buat elemen untuk menampilkan informasi pengguna
+        const userInfoDiv = document.createElement("div");
+        userInfoDiv.innerHTML = `
+            <h3>Nama: ${userData.name}</h3>
+            <p>Alamat: ${userData.address}</p>
+            <p>Email: ${userData.email}</p>
+        `;
+        userAccountSection.appendChild(userInfoDiv);
+
+        // Buat elemen untuk menampilkan riwayat pembelian
+        const ordersTable = document.createElement("table");
+        ordersTable.innerHTML = `
+            <caption>Riwayat Pembelian</caption>
+            <thead>
+                <tr>
+                    <th>No.</th>
+                    <th>Tanggal</th>
+                    <th>Total Harga</th>
+                </tr>
+            </thead>
+            <tbody>
+                ${userData.orders.map((order, index) => `
+                    <tr>
+                        <td>${index + 1}</td>
+                        <td>${order.date}</td>
+                        <td>Rp${order.total}</td>
+                    </tr>
+                `).join("")}
+            </tbody>
+        `;
+        userAccountSection.appendChild(ordersTable);
+
+        // Buat tombol untuk mengelola alamat pengiriman dan pembayaran (opsional)
+        const manageAddressButton = document.createElement("button");
+        manageAddressButton.textContent = "Kelola Alamat";
+        manageAddressButton.addEventListener("click", () => {
+            // Tambahkan logika untuk mengelola alamat pengiriman
+            alert("Anda akan diarahkan ke halaman pengelolaan alamat.");
+        });
+        userAccountSection.appendChild(manageAddressButton);
+    }
+        // Logika JavaScript untuk mengatur interaksi pengguna, memuat konten dinamis, dll.
+        document.addEventListener("DOMContentLoaded", function() {
+            // Pilih elemen navigasi atau tautan untuk setiap tampilan
+            const homeLink = document.getElementById('home-link');
+            const productsLink = document.getElementById('products-link');
+            const cartLink = document.getElementById('cart-link');
+            const checkoutLink = document.getElementById('checkout-link');
+            const userAccountLink = document.getElementById('user-account-link');
+            const promotionsLink = document.getElementById('promotions-link');
+            const helpAndSupportLink = document.getElementById('help-and-support-link');
+
+            // Tambahkan event listener untuk setiap tautan
+            homeLink.addEventListener('click', () => navigateTo('home'));
+            productsLink.addEventListener('click', () => navigateTo('products'));
+            cartLink.addEventListener('click', () => navigateTo('cart'));
+            checkoutLink.addEventListener('click', () => navigateTo('checkout'));
+            userAccountLink.addEventListener('click', () => navigateTo('user-account'));
+            promotionsLink.addEventListener('click', () => navigateTo('promotions'));
+            helpAndSupportLink.addEventListener('click', () => navigateTo('help-and-support'));
+
+            // Mulai dengan menampilkan halaman Beranda
+            navigateTo('home');
+        });
+
+        // Fungsi untuk menampilkan konten berdasarkan tautan yang diklik
+        function navigateTo(page) {
+            // Sembunyikan semua section
+            document.querySelectorAll('main > section').forEach(section => {
+                section.style.display = 'none';
+            });
+
+            // Tampilkan section yang sesuai dengan halaman yang dipilih
+            document.getElementById(page).style.display = 'block';
+        }
+    </script>
+</body>
+</html>

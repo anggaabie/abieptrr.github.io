@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplikasi ATK</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        form input[type="text"], form input[type="number"] {
+            margin-right: 10px;
+            padding: 5px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table, th, td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        .total-row {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Aplikasi ATK</h1>
+        <form id="form-transaksi">
+            <input type="text" id="nama-barang" placeholder="Nama Barang">
+            <input type="number" id="jumlah" placeholder="Jumlah">
+            <input type="number" id="harga" placeholder="Harga">
+            <button type="submit">Submit</button>
+        </form>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nama Barang</th>
+                    <th>Jumlah</th>
+                    <th>Harga</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody id="daftar-transaksi">
+                <!-- Transaksi akan ditambahkan secara dinamis di sini -->
+            </tbody>
+            <tfoot>
+                <tr class="total-row">
+                    <td colspan="3">Total Pengeluaran</td>
+                    <td id="total-pengeluaran">0</td>
+                </tr>
+                <tr class="total-row">
+                    <td colspan="3">Total Pemasukan</td>
+                    <td id="total-pemasukan">0</td>
+                </tr>
+                <tr class="total-row">
+                    <td colspan="3">Sisa Barang</td>
+                    <td id="sisa-barang">0</td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+
+    <script>
+        const formTransaksi = document.getElementById('form-transaksi');
+        const daftarTransaksi = document.getElementById('daftar-transaksi');
+        const totalPengeluaranElement = document.getElementById('total-pengeluaran');
+        const totalPemasukanElement = document.getElementById('total-pemasukan');
+        const sisaBarangElement = document.getElementById('sisa-barang');
+
+        let totalPengeluaran = 0;
+        let totalPemasukan = 0;
+
+        formTransaksi.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const namaBarang = document.getElementById('nama-barang').value;
+            const jumlah = parseInt(document.getElementById('jumlah').value);
+            const harga = parseFloat(document.getElementById('harga').value);
+
+            const total = jumlah * harga;
+            if (total < 0) {
+                alert('Harga tidak boleh negatif.');
+                return;
+            }
+
+            if (jumlah < 0) {
+                alert('Jumlah tidak boleh negatif.');
+                return;
+            }
+
+            if (!isNaN(total)) {
+                if (total < 0) {
+                    alert('Total tidak boleh negatif.');
+                    return;
+                }
+                if (total > 0) {
+                    totalPemasukan += total;
+                } else {
+                    totalPengeluaran += Math.abs(total);
+                }
+                const newRow = `
+                    <tr>
+                        <td>${namaBarang}</td>
+                        <td>${jumlah}</td>
+                        <td>${harga}</td>
+                        <td>${total}</td>
+                    </tr>
+                `;
+                daftarTransaksi.innerHTML += newRow;
+
+                totalPengeluaranElement.textContent = totalPengeluaran.toFixed(2);
+                totalPemasukanElement.textContent = totalPemasukan.toFixed(2);
+                sisaBarangElement.textContent = (totalPemasukan - totalPengeluaran).toFixed(2);
+            }
+
+            // Reset form fields
+            formTransaksi.reset();
+        });
+    </script>
+</body>
+</html>
